@@ -1,0 +1,6 @@
+[package]
+name = "RustyEuler"
+version = "0.1.0"
+authors = ["Jason"]
+
+[dependencies]
