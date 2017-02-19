@@ -1,7 +1,9 @@
 [package]
-name = "RustyEuler"
+name = "rusty_euler"
 version = "0.1.0"
 authors = ["Jason"]
 
 [dependencies]
 clap = "*"
+itertools = "*"
+time = "*"
