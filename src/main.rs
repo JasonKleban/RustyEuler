@@ -73,7 +73,7 @@ fn gpf(cand_composite: i64) -> i64 {
     } else {
         num::range_step((cand_composite as f64).sqrt().floor() as i64, 0, -1)
             .map(|x| {
-                println!("{0} % {1} == {2}", cand_composite, x, cand_composite % x);
+                //println!("{0} % {1} == {2}", cand_composite, x, cand_composite % x);
                 x
             })
             .find(|cand_fact| if cand_composite % cand_fact == 0 && gpf(*cand_fact) == 1 {
