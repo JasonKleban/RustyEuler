@@ -1,6 +1,7 @@
 extern crate clap;
 extern crate itertools;
 extern crate time;
+extern crate num;
 
 use clap::{App, Arg};
 use itertools::Itertools;
@@ -24,6 +25,7 @@ fn main() {
         match m {
             p @ "1" => run(p, euler1),
             p @ "2" => run(p, euler2),
+            p @ "3" => run(p, euler3),
             x => println!("Problem {0} not yet implemented.", x),
         }
     }
@@ -56,4 +58,29 @@ fn euler2() -> u64 {
         }
     });
     ans
+}
+
+fn euler3() -> i64 {
+    gpf(600_851_475_143i64)
+}
+
+fn gpf(cand_composite: i64) -> i64 {
+    if cand_composite == 1 {
+        1
+    }
+    else if cand_composite % 2 == 0 {
+        cand_composite / 2
+    } else {
+        num::range_step((cand_composite as f64).sqrt().floor() as i64, 0, -1)
+            .map(|x| {
+                println!("{0} % {1} == {2}", cand_composite, x, cand_composite % x);
+                x
+            })
+            .find(|cand_fact| if cand_composite % cand_fact == 0 && gpf(*cand_fact) == 1 {
+                true
+            } else {
+                false
+            })
+            .unwrap()
+    }
 }
