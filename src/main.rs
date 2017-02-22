@@ -8,7 +8,7 @@ use clap::{App, Arg};
 use time::PreciseTime;
 use self::euler1_3::{euler1, euler2, euler3};
 use self::euler4_6::{euler4, euler5, euler6};
-use self::euler7_9::{euler7};
+use self::euler7_9::{euler7, euler8};
 
 fn main() {
     let matches = App::new("rusty_euler")
@@ -32,6 +32,7 @@ fn main() {
             p @ "5" => run(p, euler5),
             p @ "6" => run(p, euler6),
             p @ "7" => run(p, euler7),
+            p @ "8" => run(p, euler8),
             x => println!("Problem {0} not yet implemented.", x),
         }
     }
